@@ -19,7 +19,7 @@
 import Dashboard from "assets/img/dashboard-icon.png";
 // import DashboardActive from "assets/img/dashboard-icon-active.png";
 // core components/views for Admin layout
-import DashboardPage from "views/Dashboard/index.js";
+// import DashboardPage from "views/Dashboard/index.js";
 import UserProfile from "views/UserProfile/UserProfile.js";
 import TableList from "views/TableList/TableList.js";
 import Typography from "views/Typography/Typography.js";
@@ -28,6 +28,7 @@ import Maps from "views/Maps/Maps.js";
 import NotificationsPage from "views/Notifications/Notifications.js";
 // core components/views for RTL layout
 import RTLPage from "views/RTLPage/RTLPage.js";
+import LogInput from "components/LogInput/LogInput";
 
 const dashboardRoutes = [
   {
@@ -35,7 +36,7 @@ const dashboardRoutes = [
     name: "Dashboard",
     rtlName: "لوحة القيادة",
     icon: Dashboard,
-    component: DashboardPage,
+    component: LogInput,
     layout: "/admin",
   },
   {
