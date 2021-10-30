@@ -1,0 +1,10 @@
+.main {
+  margin-top: -9px;
+}
+
+.main input {
+  width: 97%;
+  padding: 2%;
+  border-color: transparent;
+  box-shadow: 3px 2px 6px 1px rgb(0 0 0 / 20%);
+}
