@@ -67,7 +67,6 @@ export default function Sidebar(props) {
   );
   var brand = (
     <div className={classes.logo}>
-      <h3 style={{margin: 0}}>Cerwiz</h3>
       <a
         href="https://www.creative-tim.com?ref=mdr-sidebar"
         className={classNames(classes.logoLink, {
