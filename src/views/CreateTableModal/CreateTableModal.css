@@ -1,0 +1,40 @@
+.create-table-right-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.table-action-buttons {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 40px;
+}
+
+.table-person-input {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.table-generate-code-button {
+  margin: 0;
+  border: none;
+}
+
+.qr-code-image {
+  width: 217px;
+  height: 302px;
+  padding: 30px 0px;
+}
+
+.create-table-download-pdf {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+  color: #15C070;
+}
+
+.create-table-qr-title {
+  margin: 0;
+  margin-top: 20px;
+}

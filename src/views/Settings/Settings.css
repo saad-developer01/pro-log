@@ -1,0 +1,148 @@
+.settings-container-restaurant-profile {
+  background-color: #ddd;
+  height: 218px;
+  width: 218px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 200px;
+  margin: 40px 0px 60px 0px;
+}
+
+.settings-container-restaurant-cover {
+  background-color: #ddd;
+  width: 322px;
+  height: 139px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  margin: 40px 0px 60px 0px;
+}
+
+.settings-container-restaurant-cover img {
+  width: 48px !important;
+  height: 48px !important;
+}
+​
+.settings-container-qr-code {
+  margin: 50px 0px;
+}
+
+.settings-container-qr-code img {
+  width: 200px !important;
+  height: 200px !important;
+}
+
+.settings-container-restaurant-profile img {
+  height: 66px !important;
+  width: 66px !important;
+}
+
+.settings-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.settings-tabs {
+  width: 200px;
+  padding: 0 !important;
+}
+
+.settings-container-left-section {
+  padding-top: 50px;
+  width: 50%;
+}
+
+.settings-container-left-section h3 {
+  margin: 0 !important;
+}
+
+.settings-container-card {
+  width: 100%;
+  flex-direction: column;
+}
+
+.settings-container-input-section {
+  width: 418px;
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-container-input-label {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  color: rgba(66, 82, 110, 0.7);
+  padding-bottom: 20px;
+}
+
+.settings-container-input {
+  width: 100%;
+  height: 55px;
+}
+
+.settings-container-restaurant-timings-inputs {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.settings-container-restaurant-timings-input {
+  width: 45%;
+}
+
+.settings-container-color-picker-section {
+  width: 100%;
+  height: 55px;
+  background: #FFFFFF;
+  border: 1px solid rgba(66, 82, 110, 0.2);
+  box-sizing: border-box;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.settings-container-color-picker {
+  position: absolute;
+  top: 48px;
+  left: 10px;
+}
+
+.settings-container-location-icon {
+  width: 13px;
+  height: 16px;
+}
+
+.eye-crossed-icon {
+   width: 16px;
+  height: 14px;
+}
+
+.settings-container-color-picker-display {
+  width: 24px;
+  height: 24px;
+  border-radius: 2px;
+  margin: 0 20px;
+  background-color: GREEN;
+}
+
+.settings-container-color-picker-hexacode {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.settings-container-right-section {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 30px;
+}

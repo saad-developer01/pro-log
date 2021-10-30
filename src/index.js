@@ -17,21 +17,28 @@
 */
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
-
-// core components
-import Admin from "layouts/Admin.js";
-import RTL from "layouts/RTL.js";
+import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import { compose, createStore, applyMiddleware } from "redux";
+import { createEpicMiddleware } from "redux-most";
+import appReducer from "./store/app.reducer";
+import appEpic from "./store/app.epics";
+import Navigation from "./navigation/index";
 
 import "assets/css/material-dashboard-react.css?v=1.10.0";
 
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const epicMiddleware = createEpicMiddleware(appEpic);
+export const store = createStore(
+  appReducer,
+  composeEnhancers(applyMiddleware(epicMiddleware))
+);
+
 ReactDOM.render(
   <BrowserRouter>
-    <Switch>
-      <Route path="/admin" component={Admin} />
-      <Route path="/rtl" component={RTL} />
-      <Redirect from="/" to="/admin/dashboard" />
-    </Switch>
+    <Provider store={store}>
+      <Navigation />
+    </Provider>
   </BrowserRouter>,
   document.getElementById("root")
 );

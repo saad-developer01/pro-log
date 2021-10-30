@@ -1,0 +1,79 @@
+.payments-container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 40px;
+}
+
+
+.payments-container .MuiTab-textColorPrimary {
+  width: 214px;
+  padding-bottom: 20px;
+}
+
+.payments-container .MuiTypography-root div:nth-child(1) {
+  margin-top: 0;
+}
+
+.payments-container .MuiTypography-root div:nth-child(1) div:nth-child(1) {
+  padding: 0;
+}
+
+.payments-container .section3 {
+  display: flex;
+  padding-top: 60px;
+  flex-direction: column;
+}
+
+.payment-card {
+  width: 229px;
+  height: 148px;
+  border: 1px solid rgba(66, 82, 110, 0.16);
+  box-sizing: border-box;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.payment-card:hover {
+  background: #FFFFFF;
+  border: 1px solid #15C070;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+}
+
+.payments-cards-section {
+  margin-left: 30px;
+}
+
+.payment-card img{
+  width: 100px;
+  height: 40px;
+}
+
+.payments-section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 45px;
+}
+
+.color-box-section {
+  display: flex;
+  margin-bottom: 80px;
+}
+
+.search-icon {
+  width: 14px;
+  height: 14px;
+  margin-right: 16px;
+}
+
+.payments-container .MuiTablePagination-select {
+  padding-right: 24px !important;
+}
+
+.MuiInputBase-formControl {
+  margin: 0 !important;
+}
