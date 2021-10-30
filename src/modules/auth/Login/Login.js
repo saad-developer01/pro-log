@@ -14,7 +14,7 @@ import LockIcon from "@material-ui/icons/Lock";
 import TextField from "@material-ui/core/TextField";
 // const useStyles = makeStyles(styles);
 
-const Login = () => {
+const Login = ({ fakeLogin }) => {
   // const classes = useStyles();
   // const login = () => {
   //   fakeLogin();
@@ -76,7 +76,7 @@ const Login = () => {
                 Reset Now
               </NavLink>
             </p>
-            <CustomButton title="Login" />
+            <CustomButton title="Login" navigateTo={fakeLogin} />
           </div>
           <Socialbuttons />
         </div>
