@@ -28,7 +28,7 @@ import { PropTypes } from "prop-types";
 
 const useStyles = makeStyles(styles);
 
-export default function AdminNavbarLinks() {
+export default function AdminNavbarLinks({ fakeLogin }) {
   const classes = useStyles();
   // const [openNotification, setOpenNotification] = React.useState(null);
   // const [openProfile, setOpenProfile] = React.useState(null);
@@ -67,7 +67,7 @@ export default function AdminNavbarLinks() {
         <img src={BellIcon} className={classes.icon} />
       </div>
       <div className={classes.icons}>
-        <img src={ProfileIcon} />
+        <img src={ProfileIcon} onClick={fakeLogin} />
       </div>
       <div></div>
     </div>

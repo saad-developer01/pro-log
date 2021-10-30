@@ -120,6 +120,7 @@ const headerLinksStyle = (theme) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    cursor: "pointer",
   },
   icon: {
     width: "14px",
