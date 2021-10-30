@@ -1,0 +1,212 @@
+.container {
+  display: flex;
+}
+
+.stepper {
+  width: 20%;
+  background-color: #192133 !important;
+  color: #ffffff !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 0px;
+}
+
+.stepper-navigation-section {
+  background-color: #192133 !important;
+  flex: 1;
+}
+
+.stepper-logo-section {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+}
+
+.stepper-logo-section img {
+  width: 100px;
+  height: 100px;
+}
+
+.stepper-content {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  background: #fbfbfb;
+}
+
+.MuiStepLabel-label {
+  color: #ffffff !important;
+}
+
+.content-container {
+  padding: 32px 80px 0px 80px;
+  height: 100%;
+}
+
+.forms {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-top: 40px;
+}
+
+.input-form {
+  width: 46%;
+  height: 160px;
+}
+
+.input {
+  width: 100%;
+  background: #ffffff
+}
+
+.select-box-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.select-box {
+  width: 45%;
+  background-color: #ffffff !important;
+}
+
+.buttons-section {
+  display: flex;
+  padding: 0px 80px;
+  justify-content: space-between;
+  background-color: #ffffff;
+  align-items: center;
+}
+
+.profile-pic-section {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+
+.display-image-section {
+  display: flex;
+  width: 100%;
+  padding-top: 66px;
+}
+
+.image-uploading-input {
+ margin-left: 80px;
+ width: 100%;
+}
+
+.image-uploading-input p {
+  margin-top: 0;
+}
+
+.image-uploading-input .input {
+  width: 66%;
+}
+
+.image-uploading {
+  width: 200px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: lightgray;
+}
+
+.image-uploading-cover {
+  width: 200px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10%;
+  background-color: lightgray;
+}
+
+.image-uploading-cover img {
+  width: 20px;
+  height: 20px;
+}
+
+.image-uploading img {
+  width: 50px;
+  height: 50px;
+}
+
+.MuiTypography-body1 {
+  height: 100%;
+}
+
+.card-container {
+  margin: 20px 0px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px !important;
+}
+
+.card-container-section {
+  padding-top: 60px;
+}
+
+.card-container-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-container-content .section-1 {
+  margin-left: 10px;
+}
+
+.card-container-content .section-2 {
+  display: flex;
+  flex: 1;
+  border-left: 1px solid  black;
+  border-right: 1px solid black;
+  margin: 0px 20px;
+  padding: 0px 40px;
+  justify-content: space-between;
+}
+
+.icons {
+  width: 10px;
+  height: 10px;
+  margin-right: 10px;
+}
+
+.MuiStepIcon-root {
+  font-size: 50px !important;
+  border: 1px solid #1BC47D !important;
+  border-radius: 50% !important;
+}
+
+.MuiStepIcon-root .MuiStepIcon-text {
+  fill: #1BC47D;
+}
+
+.MuiStepIcon-root.MuiStepIcon-active {
+  color: #1BC47D !important;
+}
+
+.MuiStepLabel-label.MuiStepLabel-active {
+  color: #1BC47D !important;
+}
+
+.MuiStepIcon-root.MuiStepIcon-active .MuiStepIcon-text {
+  fill: #ffffff;
+}
+
+.MuiStepConnector-vertical {
+  margin-left: 26px !important;
+  padding: 10px 0px !important;
+}
+
+.MuiStepConnector-lineVertical {
+  min-height: 100% !important;
+}
+
+.MuiStepLabel-labelContainer {
+  margin-left: 14px;
+}
