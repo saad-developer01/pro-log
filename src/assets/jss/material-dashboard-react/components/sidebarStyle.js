@@ -62,12 +62,7 @@ const sidebarStyle = (theme) => ({
   },
   logo: {
     position: "relative",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    flexDirection: "column",
-    padding: "30px 0px 60px 0px",
-    // padding: "15px 15px",
+    padding: "15px 15px",
     zIndex: "4",
     "&:after": {
       content: '""',
@@ -91,7 +86,6 @@ const sidebarStyle = (theme) => ({
     lineHeight: "30px",
     textDecoration: "none",
     backgroundColor: "transparent",
-    width: "100px",
     "&,&:hover": {
       color: whiteColor,
     },
@@ -107,9 +101,8 @@ const sidebarStyle = (theme) => ({
     marginRight: "15px",
   },
   img: {
-    width: "70px",
-    height: "28px",
-    top: "64px",
+    width: "35px",
+    top: "22px",
     position: "absolute",
     verticalAlign: "middle",
     border: "0",
@@ -131,7 +124,7 @@ const sidebarStyle = (theme) => ({
       height: "100%",
       content: '""',
       display: "block",
-      background: whiteColor,
+      background: blackColor,
       opacity: ".8",
     },
   },
@@ -159,13 +152,13 @@ const sidebarStyle = (theme) => ({
     borderRadius: "3px",
     position: "relative",
     display: "block",
-    // padding: "10px 15px",
+    padding: "10px 15px",
     backgroundColor: "transparent",
     ...defaultFont,
   },
   itemIcon: {
     width: "24px",
-    height: "24px",
+    height: "30px",
     fontSize: "24px",
     lineHeight: "30px",
     float: "left",
@@ -184,7 +177,7 @@ const sidebarStyle = (theme) => ({
     margin: "0",
     lineHeight: "30px",
     fontSize: "14px",
-    color: blackColor,
+    color: whiteColor,
   },
   itemTextRTL: {
     textAlign: "right",
@@ -302,11 +295,6 @@ const sidebarStyle = (theme) => ({
       width: "100%",
       bottom: "13px",
     },
-  },
-  activeTab: {
-    boxShadow:
-      "0 12px 20px -10px rgb(197 197 197 / 28%), 0 4px 20px 0 rgb(0 0 0 / 12%), 0 7px 8px -5px rgb(197 197 197 / 20%)",
-    backgroundColor: "rgba(25, 33, 51, 0.04)",
   },
 });
 

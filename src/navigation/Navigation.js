@@ -5,7 +5,6 @@ import Backdrop from "@material-ui/core/Backdrop";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Login from "./../modules/auth/Login/index";
 import Signup from "./../modules/auth/Signup/index";
-import RegistrationSteps from "./../modules/auth/RegistrationSteps/index";
 
 // core components
 import Admin from "layouts/Admin.js";
@@ -47,7 +46,6 @@ const Navigation = ({ appInitialized, initialLoading, isLoggedIn }) => {
         <>
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
-          <Route path="/registration" component={RegistrationSteps} />
           <Redirect from="/" to="/login" />
         </>
       )}

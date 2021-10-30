@@ -35,28 +35,19 @@ const headerStyle = () => ({
   },
   flex: {
     flex: 1,
-    alignItems: "center",
-    display: "flex",
   },
   title: {
     ...defaultFont,
-    display: "flex",
     letterSpacing: "unset",
     lineHeight: "30px",
     fontSize: "18px",
     borderRadius: "3px",
     textTransform: "none",
     color: "inherit",
-    margin: "0px 20px",
+    margin: "0",
     "&:hover,&:focus": {
       background: "transparent",
     },
-  },
-  titleName: {
-    fontWeight: "bold",
-  },
-  icon: {
-    marginLeft: "20px",
   },
   appResponsive: {
     top: "8px",

@@ -16,23 +16,25 @@
 
 */
 // @material-ui/icons
-import Dashboard from "assets/img/dashboard-icon.png";
-// import DashboardActive from "assets/img/dashboard-icon-active.png";
+import Dashboard from "@material-ui/icons/Dashboard";
+import Person from "@material-ui/icons/Person";
+import LibraryBooks from "@material-ui/icons/LibraryBooks";
+import BubbleChart from "@material-ui/icons/BubbleChart";
+import LocationOn from "@material-ui/icons/LocationOn";
+import Notifications from "@material-ui/icons/Notifications";
+import Unarchive from "@material-ui/icons/Unarchive";
+import Language from "@material-ui/icons/Language";
 // core components/views for Admin layout
 import DashboardPage from "views/Dashboard/index.js";
-import OrdersPage from "views/Orders/index.js";
-import MenuPage from "views/Menu/index.js";
-import TablesPage from "views/Tables/index.js";
-import PaymentsPage from "views/Payments/index.js";
-import SettingsPage from "views/Settings/index.js";
-// import UserProfile from "views/UserProfile/UserProfile.js";
-// import TableList from "views/TableList/TableList.js";
-// import Typography from "views/Typography/Typography.js";
-// import Icons from "views/Icons/Icons.js";
-// import Maps from "views/Maps/Maps.js";
-// import NotificationsPage from "views/Notifications/Notifications.js";
+import UserProfile from "views/UserProfile/UserProfile.js";
+import TableList from "views/TableList/TableList.js";
+import Typography from "views/Typography/Typography.js";
+import Icons from "views/Icons/Icons.js";
+import Maps from "views/Maps/Maps.js";
+import NotificationsPage from "views/Notifications/Notifications.js";
+import UpgradeToPro from "views/UpgradeToPro/UpgradeToPro.js";
 // core components/views for RTL layout
-// import RTLPage from "views/RTLPage/RTLPage.js";
+import RTLPage from "views/RTLPage/RTLPage.js";
 
 const dashboardRoutes = [
   {
@@ -44,101 +46,69 @@ const dashboardRoutes = [
     layout: "/admin",
   },
   {
-    path: "/orders",
-    name: "Orders",
-    rtlName: "لوحة القيادة",
-    icon: Dashboard,
-    component: OrdersPage,
+    path: "/user",
+    name: "User Profile",
+    rtlName: "ملف تعريفي للمستخدم",
+    icon: Person,
+    component: UserProfile,
     layout: "/admin",
   },
   {
-    path: "/menu",
-    name: "Menu",
-    rtlName: "لوحة القيادة",
-    icon: Dashboard,
-    component: MenuPage,
+    path: "/table",
+    name: "Table List",
+    rtlName: "قائمة الجدول",
+    icon: "content_paste",
+    component: TableList,
     layout: "/admin",
   },
   {
-    path: "/tables",
-    name: "Tables",
-    rtlName: "لوحة القيادة",
-    icon: Dashboard,
-    component: TablesPage,
+    path: "/typography",
+    name: "Typography",
+    rtlName: "طباعة",
+    icon: LibraryBooks,
+    component: Typography,
     layout: "/admin",
   },
   {
-    path: "/payments",
-    name: "Payments",
-    rtlName: "لوحة القيادة",
-    icon: Dashboard,
-    component: PaymentsPage,
+    path: "/icons",
+    name: "Icons",
+    rtlName: "الرموز",
+    icon: BubbleChart,
+    component: Icons,
     layout: "/admin",
   },
   {
-    path: "/settings",
-    name: "Settings",
-    rtlName: "لوحة القيادة",
-    icon: Dashboard,
-    component: SettingsPage,
+    path: "/maps",
+    name: "Maps",
+    rtlName: "خرائط",
+    icon: LocationOn,
+    component: Maps,
     layout: "/admin",
   },
-  // {
-  //   path: "/user",
-  //   name: "User Profile",
-  //   rtlName: "ملف تعريفي للمستخدم",
-  //   icon: Dashboard,
-  //   component: UserProfile,
-  //   layout: "/admin",
-  // },
-  // {
-  //   path: "/table",
-  //   name: "Table List",
-  //   rtlName: "قائمة الجدول",
-  //   icon: Dashboard,
-  //   component: TableList,
-  //   layout: "/admin",
-  // },
-  // {
-  //   path: "/typography",
-  //   name: "Typography",
-  //   rtlName: "طباعة",
-  //   icon: Dashboard,
-  //   component: Typography,
-  //   layout: "/admin",
-  // },
-  // {
-  //   path: "/icons",
-  //   name: "Icons",
-  //   rtlName: "الرموز",
-  //   icon: Dashboard,
-  //   component: Icons,
-  //   layout: "/admin",
-  // },
-  // {
-  //   path: "/maps",
-  //   name: "Maps",
-  //   rtlName: "خرائط",
-  //   icon: Dashboard,
-  //   component: Maps,
-  //   layout: "/admin",
-  // },
-  // {
-  //   path: "/notifications",
-  //   name: "Notifications",
-  //   rtlName: "إخطارات",
-  //   icon: Dashboard,
-  //   component: NotificationsPage,
-  //   layout: "/admin",
-  // },
-  // {
-  //   path: "/rtl-page",
-  //   name: "RTL Support",
-  //   rtlName: "پشتیبانی از راست به چپ",
-  //   icon: Dashboard,
-  //   component: RTLPage,
-  //   layout: "/rtl",
-  // },
+  {
+    path: "/notifications",
+    name: "Notifications",
+    rtlName: "إخطارات",
+    icon: Notifications,
+    component: NotificationsPage,
+    layout: "/admin",
+  },
+  {
+    path: "/rtl-page",
+    name: "RTL Support",
+    rtlName: "پشتیبانی از راست به چپ",
+    icon: Language,
+    component: RTLPage,
+    layout: "/rtl",
+  },
+  {
+    path: "/upgrade-to-pro",
+    name: "Upgrade To PRO",
+    rtlName: "التطور للاحترافية",
+    icon: Unarchive,
+    component: UpgradeToPro,
+    layout: "/admin",
+  },
 ];
 
 export default dashboardRoutes;
