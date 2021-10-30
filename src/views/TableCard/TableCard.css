@@ -1,0 +1,70 @@
+.table-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.card {
+  padding: 10px 20px;
+  border-radius: 10px;
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 120px;
+}
+
+.left {
+  width: 80px;
+  height: 80px;
+  background-color: #F0F5FF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.left img {
+  width: 36px;
+  height: 24px;
+}
+
+.right {
+  width: 60%;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  color: gray;
+}
+
+.right h2 {
+  margin: 6px 0;
+  color: #000;
+  font-style: normal;
+  font-weight: 500 !important;
+  font-size: 22px !important;
+  line-height: 26px;
+}
+
+.booked {
+  color: #3aa059;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  background-color: #ccc;
+  border-radius: 50%;
+  margin: 0 6px;
+}
+
+.card-top {
+  display: flex;
+  align-items: center;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+}

@@ -1,0 +1,47 @@
+/* .Button {
+  padding: 20px;
+  background-color: rgb(111, 185, 111);
+  color: #fff;
+} */
+
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+
+.slider {
+  width: 50%;
+}
+
+.login {
+  width: 50%;
+  background-color: #ffffff;
+  min-height: 100%;
+}
+
+.login-container {
+  padding: 50px 80px;
+}
+
+.login-inner-container {
+  padding-right: 140px !important;
+}
+
+h2 {
+  margin: 0;
+  font-weight: bold !important;
+  font-size: 2.5em !important;
+}
+
+.inputs {
+  margin: 10px 0px !important;
+  width: 100%;
+  border-radius: 20%;
+}
+
+.links {
+  font-weight: 400;
+  color: #1BC47D;
+  margin-left: 6px;
+}
