@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { PropTypes } from "prop-types";
 // import { makeStyles } from "@material-ui/core/styles";
 // import styles from "./loginStyle.js";
@@ -12,6 +12,7 @@ import { NavLink } from "react-router-dom";
 import PersonIcon from "@material-ui/icons/Person";
 import LockIcon from "@material-ui/icons/Lock";
 import TextField from "@material-ui/core/TextField";
+import EyeCrossedIcon from "assets/icons/eye-crossed-icon.png";
 // const useStyles = makeStyles(styles);
 
 const Login = ({ fakeLogin }) => {
@@ -19,6 +20,8 @@ const Login = ({ fakeLogin }) => {
   // const login = () => {
   //   fakeLogin();
   // };
+
+  const [showPassword, setShowPassword] = useState(false);
 
   return (
     <div className="container">
@@ -56,7 +59,7 @@ const Login = ({ fakeLogin }) => {
               <FormControl variant="outlined" className="inputs">
                 <TextField
                   id="outlined-adornment-password"
-                  type="password"
+                  type={showPassword ? "type" : "password"}
                   variant="outlined"
                   size="small"
                   placeholder="Password"
@@ -65,6 +68,13 @@ const Login = ({ fakeLogin }) => {
                       <InputAdornment position="start">
                         <LockIcon fontSize="small" />
                       </InputAdornment>
+                    ),
+                    endAdornment: (
+                      <img
+                        src={EyeCrossedIcon}
+                        className="eye-crossed-icon"
+                        onClick={() => setShowPassword(!showPassword)}
+                      />
                     ),
                   }}
                 />
