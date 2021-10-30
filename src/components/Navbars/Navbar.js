@@ -12,10 +12,11 @@ import Menu from "@material-ui/icons/Menu";
 // core components
 import AdminNavbarLinks from "./index.js";
 import RTLNavbarLinks from "./RTLNavbarLinks.js";
-import Button from "components/CustomButtons/Button.js";
+// import Button from "components/CustomButtons/Button.js";
+import DehazeIcon from "@material-ui/icons/Dehaze";
 
 //hooks
-import { useRouteName } from "hooks";
+// import { useRouteName } from "hooks";
 
 import styles from "assets/jss/material-dashboard-react/components/headerStyle.js";
 
@@ -23,7 +24,7 @@ const useStyles = makeStyles(styles);
 
 export default function Header(props) {
   const classes = useStyles();
-  const routeName = useRouteName();
+  // const routeName = useRouteName();
   const { color } = props;
   const appBarClasses = classNames({
     [" " + classes[color]]: color,
@@ -32,10 +33,12 @@ export default function Header(props) {
     <AppBar className={classes.appBar + appBarClasses}>
       <Toolbar className={classes.container}>
         <div className={classes.flex}>
+          <DehazeIcon size="small" className={classes.icon} />
           {/* Here we create navbar brand, based on route name */}
-          <Button color="transparent" href="#" className={classes.title}>
-            {routeName}
-          </Button>
+          <div className={classes.title}>
+            <h4>Welcome,</h4>
+            <h4 className={classes.titleName}>Welcome</h4>
+          </div>
         </div>
         <Hidden smDown implementation="css">
           {props.rtlActive ? <RTLNavbarLinks /> : <AdminNavbarLinks />}

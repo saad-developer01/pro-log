@@ -108,6 +108,23 @@ const headerLinksStyle = (theme) => ({
     },
     display: "inline-block",
   },
+  navRightSection: {
+    display: "flex",
+  },
+  icons: {
+    width: "34px",
+    height: "34px",
+    backgroundColor: "#F5F5F5",
+    margin: "0px 4px",
+    borderRadius: "50%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  icon: {
+    width: "14px",
+    height: "14px",
+  },
 });
 
 export default headerLinksStyle;

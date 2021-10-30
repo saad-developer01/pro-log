@@ -14,7 +14,7 @@ import Icon from "@material-ui/core/Icon";
 // core components
 import AdminNavbarLinks from "components/Navbars/index.js";
 import RTLNavbarLinks from "components/Navbars/RTLNavbarLinks.js";
-
+import DashboardActive from "assets/img/dashboard-icon-active.png";
 import styles from "assets/jss/material-dashboard-react/components/sidebarStyle.js";
 
 const useStyles = makeStyles(styles);
@@ -32,19 +32,13 @@ export default function Sidebar(props) {
       {routes.map((prop, key) => {
         var activePro = " ";
         var listItemClasses;
-        if (prop.path === "/upgrade-to-pro") {
-          activePro = classes.activePro + " ";
-          listItemClasses = classNames({
-            [" " + classes[color]]: true,
-          });
-        } else {
-          listItemClasses = classNames({
-            [" " + classes[color]]: activeRoute(prop.layout + prop.path),
-          });
-        }
-        const whiteFontClasses = classNames({
-          [" " + classes.whiteFont]: activeRoute(prop.layout + prop.path),
+        listItemClasses = classNames({
+          [" " + classes.activeTab]: activeRoute(prop.layout + prop.path),
         });
+        // const whiteFontClasses = classNames({
+        //   [" " + classes.whiteFont]: activeRoute(prop.layout + prop.path),
+        // });
+        const icon = activeRoute(prop.layout + prop.path) ? DashboardActive : prop.icon;
         return (
           <NavLink
             to={prop.layout + prop.path}
@@ -53,24 +47,14 @@ export default function Sidebar(props) {
             key={key}
           >
             <ListItem button className={classes.itemLink + listItemClasses}>
-              {typeof prop.icon === "string" ? (
-                <Icon
-                  className={classNames(classes.itemIcon, whiteFontClasses, {
-                    [classes.itemIconRTL]: props.rtlActive,
-                  })}
-                >
-                  {prop.icon}
-                </Icon>
-              ) : (
-                <prop.icon
-                  className={classNames(classes.itemIcon, whiteFontClasses, {
-                    [classes.itemIconRTL]: props.rtlActive,
-                  })}
-                />
-              )}
+              <img src={icon}
+                className={classNames(classes.itemIcon, {
+                  [classes.itemIconRTL]: props.rtlActive,
+                })}
+              />
               <ListItemText
                 primary={props.rtlActive ? prop.rtlName : prop.name}
-                className={classNames(classes.itemText, whiteFontClasses, {
+                className={classNames(classes.itemText, {
                   [classes.itemTextRTL]: props.rtlActive,
                 })}
                 disableTypography={true}
@@ -83,6 +67,7 @@ export default function Sidebar(props) {
   );
   var brand = (
     <div className={classes.logo}>
+      <h3 style={{margin: 0}}>Cerwiz</h3>
       <a
         href="https://www.creative-tim.com?ref=mdr-sidebar"
         className={classNames(classes.logoLink, {
@@ -93,7 +78,6 @@ export default function Sidebar(props) {
         <div className={classes.logoImage}>
           <img src={logo} alt="logo" className={classes.img} />
         </div>
-        {logoText}
       </a>
     </div>
   );
@@ -143,7 +127,7 @@ export default function Sidebar(props) {
           {image !== undefined ? (
             <div
               className={classes.background}
-              style={{ backgroundImage: "url(" + image + ")" }}
+              // style={{ backgroundImage: "url(" + image + ")" }}
             />
           ) : null}
         </Drawer>
