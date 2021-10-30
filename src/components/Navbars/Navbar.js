@@ -19,7 +19,7 @@ import RTLNavbarLinks from "./RTLNavbarLinks.js";
 // import { useRouteName } from "hooks";
 
 import styles from "assets/jss/material-dashboard-react/components/headerStyle.js";
-import LogInput from "components/LogInput/LogInput.js";
+// import LogInput from "components/LogInput/LogInput.js";
 
 const useStyles = makeStyles(styles);
 
@@ -32,7 +32,7 @@ export default function Header(props) {
   });
   return (
     <AppBar className={classes.appBar + appBarClasses}>
-      <LogInput />
+      {/* <LogInput /> */}
       <Toolbar className={classes.container}>
         <div className={classes.flex}>
           {/* <DehazeIcon size="small" className={classes.icon} /> */}
