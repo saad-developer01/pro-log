@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Sliderlayout from "../Sliderlayout";
 import Socialbuttons from "../Socialbuttons";
 import CustomButton from "../Button";
@@ -9,10 +9,13 @@ import PersonIcon from "@material-ui/icons/Person";
 import LockIcon from "@material-ui/icons/Lock";
 import TextField from "@material-ui/core/TextField";
 import { useHistory } from "react-router-dom";
+import EyeCrossedIcon from "assets/icons/eye-crossed-icon.png";
 import "../Auth.css";
 
 const Signup = () => {
   const history = useHistory();
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const navigateTo = () => history.push("/registration");
   return (
     <div className="container">
@@ -50,7 +53,7 @@ const Signup = () => {
               <FormControl size="small" variant="outlined" className="inputs">
                 <TextField
                   id="outlined-adornment-password"
-                  type="password"
+                  type={showPassword ? "type" : "password"}
                   variant="outlined"
                   size="small"
                   placeholder="Password"
@@ -60,13 +63,20 @@ const Signup = () => {
                         <LockIcon fontSize="small" />
                       </InputAdornment>
                     ),
+                    endAdornment: (
+                      <img
+                        src={EyeCrossedIcon}
+                        className="eye-crossed-icon"
+                        onClick={() => setShowPassword(!showPassword)}
+                      />
+                    ),
                   }}
                 />
               </FormControl>
               <FormControl size="small" variant="outlined" className="inputs">
                 <TextField
                   id="outlined-adornment-password"
-                  type="password"
+                  type={showConfirmPassword ? "type" : "password"}
                   variant="outlined"
                   size="small"
                   placeholder="Re-Type Password"
@@ -75,6 +85,15 @@ const Signup = () => {
                       <InputAdornment position="start">
                         <LockIcon fontSize="small" />
                       </InputAdornment>
+                    ),
+                    endAdornment: (
+                      <img
+                        src={EyeCrossedIcon}
+                        className="eye-crossed-icon"
+                        onClick={() =>
+                          setShowConfirmPassword(!showConfirmPassword)
+                        }
+                      />
                     ),
                   }}
                 />

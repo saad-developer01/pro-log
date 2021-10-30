@@ -45,3 +45,10 @@ h2 {
   color: #1BC47D;
   margin-left: 6px;
 }
+
+.login-container .eye-crossed-icon {
+  z-index: 1;
+  cursor: pointer;
+  width: 14px;
+  height: 14px;
+}
