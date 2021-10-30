@@ -16,6 +16,7 @@ const mapStateToProps = (state) => {
   return {
     initialLoading: core.initialLoading,
     isLoggedIn: auth.isLoggedIn,
+    callInProcess: core.callInProcess,
   };
 };
 
