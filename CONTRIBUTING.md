@@ -1,0 +1,4 @@
+- clone the project
+- create new branch
+- work and commit
+- push the branch and create the PR
