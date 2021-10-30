@@ -66,7 +66,7 @@ const sidebarStyle = (theme) => ({
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "column",
-    padding: "30px 0px 60px 0px",
+    padding: "44px 0px 60px 0px",
     // padding: "15px 15px",
     zIndex: "4",
     "&:after": {

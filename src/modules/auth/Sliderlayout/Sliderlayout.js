@@ -4,7 +4,7 @@ import { Carousel } from "react-responsive-carousel";
 import Slider1 from "assets/img/slider1.jpg";
 import Slider2 from "assets/img/slider2.jpg";
 import Slider3 from "assets/img/slider3.jpg";
-import Logo from "assets/img/logo.png";
+import Logo from "assets/img/pro-logo.png";
 import "./Sliderlayout.css";
 
 const Sliderlayout = () => {
