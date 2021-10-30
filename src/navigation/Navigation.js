@@ -19,7 +19,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Navigation = ({ appInitialized, initialLoading, isLoggedIn }) => {
+const Navigation = ({
+  appInitialized,
+  initialLoading,
+  isLoggedIn,
+  callInProcess,
+}) => {
   const classes = useStyles();
   useEffect(() => {
     setTimeout(() => {
@@ -36,22 +41,27 @@ const Navigation = ({ appInitialized, initialLoading, isLoggedIn }) => {
   }
 
   return (
-    <Switch>
-      {isLoggedIn ? (
-        <>
-          <Route path="/admin" component={Admin} />
-          <Route path="/rtl" component={RTL} />
-          <Redirect from="/" to="/admin/dashboard" />
-        </>
-      ) : (
-        <>
-          <Route path="/login" component={Login} />
-          <Route path="/signup" component={Signup} />
-          <Route path="/registration" component={RegistrationSteps} />
-          <Redirect from="/" to="/login" />
-        </>
-      )}
-    </Switch>
+    <>
+      <Switch>
+        {isLoggedIn ? (
+          <>
+            <Route path="/admin" component={Admin} />
+            <Route path="/rtl" component={RTL} />
+            <Redirect from="/" to="/admin/dashboard" />
+          </>
+        ) : (
+          <>
+            <Route path="/login" component={Login} />
+            <Route path="/signup" component={Signup} />
+            <Route path="/registration" component={RegistrationSteps} />
+            <Redirect from="/" to="/login" />
+          </>
+        )}
+      </Switch>
+      <Backdrop className={classes.backdrop} open={callInProcess}>
+        <CircularProgress color="inherit" />
+      </Backdrop>
+    </>
   );
 };
 
@@ -59,6 +69,7 @@ Navigation.propTypes = {
   initialLoading: PropTypes.string.isRequired,
   appInitialized: PropTypes.string.isRequired,
   isLoggedIn: PropTypes.string.isRequired,
+  callInProcess: PropTypes.bool.isRequired,
 };
 
 export default Navigation;
