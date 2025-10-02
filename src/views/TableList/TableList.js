@@ -96,6 +96,7 @@ export default function TableList() {
             <Table
               tableHeaderColor="lightGray"
               sortable
+              pagination
               tableHead={["Name", "Country", "City", "Salary"]}
               tableData={filteredOne}
             />
@@ -125,6 +126,7 @@ export default function TableList() {
             <Table
               tableHeaderColor="lightGray"
               sortable
+              pagination
               tableHead={["ID", "Name", "Country", "City", "Salary"]}
               tableData={filteredTwo}
             />

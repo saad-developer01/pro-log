@@ -76,6 +76,24 @@ const tableStyle = (theme) => ({
     outline: "none",
     verticalAlign: "middle",
   },
+  // Pagination styles
+  paginationRoot: {
+    color: grayColor[2],
+  },
+  paginationToolbar: {
+    color: grayColor[2],
+  },
+  paginationCaption: {
+    color: grayColor[2],
+  },
+  paginationSelectIcon: {
+    color: primaryColor[0],
+  },
+  paginationActions: {
+    "& button": {
+      color: primaryColor[0],
+    },
+  },
 });
 
 export default tableStyle;
