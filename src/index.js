@@ -16,7 +16,7 @@
 
 */
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { compose, createStore, applyMiddleware } from "redux";
@@ -34,11 +34,12 @@ export const store = createStore(
   composeEnhancers(applyMiddleware(epicMiddleware))
 );
 
-ReactDOM.render(
+const container = document.getElementById("root");
+const root = createRoot(container);
+root.render(
   <BrowserRouter>
     <Provider store={store}>
       <Navigation />
     </Provider>
-  </BrowserRouter>,
-  document.getElementById("root")
+  </BrowserRouter>
 );
