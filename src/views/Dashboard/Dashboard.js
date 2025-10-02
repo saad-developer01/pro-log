@@ -1,6 +1,8 @@
 import React from "react";
 // react plugin for creating charts
-// import ChartistGraph from "react-chartist";
+import ChartistGraph from "react-chartist";
+import * as Chartist from "chartist";
+import "chartist/dist/chartist.min.css";
 // // @material-ui/core
 // import { makeStyles } from "@material-ui/core/styles";
 // import Icon from "@material-ui/core/Icon";
@@ -30,11 +32,10 @@ import React from "react";
 // import CardFooter from "components/Card/CardFooter.js";
 // import { bugs, website, server } from "variables/general.js";
 
-// import {
-//   dailySalesChart,
-//   emailsSubscriptionChart,
-//   completedTasksChart,
-// } from "variables/charts.js";
+import {
+  dailySalesChart,
+  emailsSubscriptionChart,
+} from "variables/charts.js";
 
 // import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
 // const useStyles = makeStyles(styles);
@@ -50,6 +51,14 @@ import "./Dashboard.css";
 
 export default function Dashboard() {
   // const classes = useStyles();
+  // Ensure Chartist constructors exist for react-chartist
+  if (typeof window !== "undefined") {
+    const C = Chartist;
+    if (!window.Chartist) window.Chartist = C;
+    if (!window.Chartist.Line && C.LineChart) window.Chartist.Line = C.LineChart;
+    if (!window.Chartist.Bar && C.BarChart) window.Chartist.Bar = C.BarChart;
+    if (!window.Chartist.Pie && C.PieChart) window.Chartist.Pie = C.PieChart;
+  }
   const boxes = [
     {
       number: "15",
@@ -109,6 +118,35 @@ export default function Dashboard() {
             </Select>
           </FormControl>
         </div>
+      </div>
+      <div style={{ display: "flex", gap: 16, marginTop: 16, flexWrap: "wrap" }}>
+        <Card plain style={{ flex: 1, minWidth: 320 }}>
+          <CardBody>
+            <h3 style={{ marginTop: 0 }}>Dummy Line Chart</h3>
+            <ChartistGraph
+              data={dailySalesChart.data}
+              type="Line"
+              options={dailySalesChart.options}
+              listener={dailySalesChart.animation}
+              className="ct-chart"
+              style={{ height: 300 }}
+            />
+          </CardBody>
+        </Card>
+        <Card plain style={{ flex: 1, minWidth: 320 }}>
+          <CardBody>
+            <h3 style={{ marginTop: 0 }}>Dummy Bar Chart</h3>
+            <ChartistGraph
+              data={emailsSubscriptionChart.data}
+              type="Bar"
+              options={emailsSubscriptionChart.options}
+              responsiveOptions={emailsSubscriptionChart.responsiveOptions}
+              listener={emailsSubscriptionChart.animation}
+              className="ct-chart"
+              style={{ height: 300 }}
+            />
+          </CardBody>
+        </Card>
       </div>
       <div className="section2">
         {boxes.map((box) => {
