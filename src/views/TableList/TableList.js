@@ -1,4 +1,5 @@
 import React from "react";
+import TextField from "@material-ui/core/TextField";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 // core components
@@ -43,6 +44,35 @@ const useStyles = makeStyles(styles);
 
 export default function TableList() {
   const classes = useStyles();
+  const [searchOne, setSearchOne] = React.useState("");
+  const [searchTwo, setSearchTwo] = React.useState("");
+
+  const dataOne = [
+    ["Dakota Rice", "Niger", "Oud-Turnhout", "$36,738"],
+    ["Minerva Hooper", "Curaçao", "Sinaai-Waas", "$23,789"],
+    ["Sage Rodriguez", "Netherlands", "Baileux", "$56,142"],
+    ["Philip Chaney", "Korea, South", "Overland Park", "$38,735"],
+    ["Doris Greene", "Malawi", "Feldkirchen in Kärnten", "$63,542"],
+    ["Mason Porter", "Chile", "Gloucester", "$78,615"],
+  ];
+
+  const dataTwo = [
+    ["1", "Dakota Rice", "$36,738", "Niger", "Oud-Turnhout"],
+    ["2", "Minerva Hooper", "$23,789", "Curaçao", "Sinaai-Waas"],
+    ["3", "Sage Rodriguez", "$56,142", "Netherlands", "Baileux"],
+    ["4", "Philip Chaney", "$38,735", "Korea, South", "Overland Park"],
+    ["5", "Doris Greene", "$63,542", "Malawi", "Feldkirchen in Kärnten"],
+    ["6", "Mason Porter", "$78,615", "Chile", "Gloucester"],
+  ];
+
+  const filterRows = (rows, query) => {
+    if (!query) return rows;
+    const q = query.toLowerCase();
+    return rows.filter((row) => row.some((cell) => String(cell).toLowerCase().includes(q)));
+  };
+
+  const filteredOne = React.useMemo(() => filterRows(dataOne, searchOne), [dataOne, searchOne]);
+  const filteredTwo = React.useMemo(() => filterRows(dataTwo, searchTwo), [dataTwo, searchTwo]);
   return (
     <GridContainer>
       <GridItem xs={12} sm={12} md={12}>
@@ -54,18 +84,20 @@ export default function TableList() {
             </p>
           </CardHeader>
           <CardBody>
+            <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: 12 }}>
+              <TextField
+                variant="outlined"
+                size="small"
+                placeholder="Search..."
+                value={searchOne}
+                onChange={(e) => setSearchOne(e.target.value)}
+              />
+            </div>
             <Table
               tableHeaderColor="lightGray"
               sortable
               tableHead={["Name", "Country", "City", "Salary"]}
-              tableData={[
-                ["Dakota Rice", "Niger", "Oud-Turnhout", "$36,738"],
-                ["Minerva Hooper", "Curaçao", "Sinaai-Waas", "$23,789"],
-                ["Sage Rodriguez", "Netherlands", "Baileux", "$56,142"],
-                ["Philip Chaney", "Korea, South", "Overland Park", "$38,735"],
-                ["Doris Greene", "Malawi", "Feldkirchen in Kärnten", "$63,542"],
-                ["Mason Porter", "Chile", "Gloucester", "$78,615"],
-              ]}
+              tableData={filteredOne}
             />
           </CardBody>
         </Card>
@@ -81,30 +113,20 @@ export default function TableList() {
             </p>
           </CardHeader>
           <CardBody>
+            <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: 12 }}>
+              <TextField
+                variant="outlined"
+                size="small"
+                placeholder="Search..."
+                value={searchTwo}
+                onChange={(e) => setSearchTwo(e.target.value)}
+              />
+            </div>
             <Table
               tableHeaderColor="lightGray"
               sortable
               tableHead={["ID", "Name", "Country", "City", "Salary"]}
-              tableData={[
-                ["1", "Dakota Rice", "$36,738", "Niger", "Oud-Turnhout"],
-                ["2", "Minerva Hooper", "$23,789", "Curaçao", "Sinaai-Waas"],
-                ["3", "Sage Rodriguez", "$56,142", "Netherlands", "Baileux"],
-                [
-                  "4",
-                  "Philip Chaney",
-                  "$38,735",
-                  "Korea, South",
-                  "Overland Park",
-                ],
-                [
-                  "5",
-                  "Doris Greene",
-                  "$63,542",
-                  "Malawi",
-                  "Feldkirchen in Kärnten",
-                ],
-                ["6", "Mason Porter", "$78,615", "Chile", "Gloucester"],
-              ]}
+              tableData={filteredTwo}
             />
           </CardBody>
         </Card>
