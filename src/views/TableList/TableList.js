@@ -55,7 +55,8 @@ export default function TableList() {
           </CardHeader>
           <CardBody>
             <Table
-              tableHeaderColor="primary"
+              tableHeaderColor="lightGray"
+              sortable
               tableHead={["Name", "Country", "City", "Salary"]}
               tableData={[
                 ["Dakota Rice", "Niger", "Oud-Turnhout", "$36,738"],
@@ -81,7 +82,8 @@ export default function TableList() {
           </CardHeader>
           <CardBody>
             <Table
-              tableHeaderColor="primary"
+              tableHeaderColor="lightGray"
+              sortable
               tableHead={["ID", "Name", "Country", "City", "Salary"]}
               tableData={[
                 ["1", "Dakota Rice", "$36,738", "Niger", "Oud-Turnhout"],

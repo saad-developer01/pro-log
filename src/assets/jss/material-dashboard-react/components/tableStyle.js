@@ -31,6 +31,10 @@ const tableStyle = (theme) => ({
   grayTableHeader: {
     color: grayColor[0],
   },
+  lightGrayTableHeader: {
+    backgroundColor: "#f5f5f5",
+    color: "#555",
+  },
   table: {
     marginBottom: "0",
     width: "100%",
