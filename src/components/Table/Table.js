@@ -7,14 +7,18 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
+import TableFooter from "@material-ui/core/TableFooter";
+import TablePagination from "@material-ui/core/TablePagination";
 // core components
 import styles from "assets/jss/material-dashboard-react/components/tableStyle.js";
 
 const useStyles = makeStyles(styles);
 export default function CustomTable(props) {
   const classes = useStyles();
-  const { tableHead, tableData, tableHeaderColor, sortable } = props;
+  const { tableHead, tableData, tableHeaderColor, sortable, pagination } = props;
   const [sortConfig, setSortConfig] = React.useState({ columnIndex: null, direction: "asc" });
+  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
   const sortedData = React.useMemo(() => {
     if (sortConfig.columnIndex == null) return tableData;
@@ -46,6 +50,21 @@ export default function CustomTable(props) {
     });
   };
 
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(parseInt(event.target.value, 10));
+    setPage(0);
+  };
+
+  const pagedData = React.useMemo(() => {
+    if (!pagination) return sortedData;
+    const start = page * rowsPerPage;
+    return sortedData.slice(start, start + rowsPerPage);
+  }, [sortedData, pagination, page, rowsPerPage]);
+
   return (
     <div className={classes.tableResponsive}>
       <Table className={classes.table}>
@@ -71,7 +90,7 @@ export default function CustomTable(props) {
           </TableHead>
         ) : null}
         <TableBody>
-          {sortedData.map((row, rIdx) => {
+          {pagedData.map((row, rIdx) => {
             return (
               <TableRow key={rIdx} className={classes.tableBodyRow}>
                 {row.map((cell, cIdx) => {
@@ -85,6 +104,27 @@ export default function CustomTable(props) {
             );
           })}
         </TableBody>
+        {pagination ? (
+          <TableFooter>
+            <TableRow>
+              <TablePagination
+                rowsPerPageOptions={[5, 10, 25]}
+                count={sortedData.length}
+                rowsPerPage={rowsPerPage}
+                page={page}
+                onChangePage={handleChangePage}
+                onChangeRowsPerPage={handleChangeRowsPerPage}
+                classes={{
+                  root: classes.paginationRoot,
+                  toolbar: classes.paginationToolbar,
+                  caption: classes.paginationCaption,
+                  selectIcon: classes.paginationSelectIcon,
+                  actions: classes.paginationActions,
+                }}
+              />
+            </TableRow>
+          </TableFooter>
+        ) : null}
       </Table>
     </div>
   );
@@ -107,4 +147,5 @@ CustomTable.propTypes = {
   tableHead: PropTypes.arrayOf(PropTypes.string),
   tableData: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)),
   sortable: PropTypes.bool,
+  pagination: PropTypes.bool,
 };
