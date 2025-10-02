@@ -1,7 +1,7 @@
 // ##############################
 // // // javascript library for creating charts
 // #############################
-var Chartist = require("chartist");
+import * as Chartist from "chartist";
 
 // ##############################
 // // // variables used to create animation on charts
@@ -15,15 +15,32 @@ var delays2 = 80,
 // // // Daily Sales
 // #############################
 
+// Safely resolve a Chartist line smoothing function
+const getLineSmooth = () => {
+  if (
+    Chartist &&
+    Chartist.Interpolation &&
+    typeof Chartist.Interpolation.cardinal === "function"
+  ) {
+    return Chartist.Interpolation.cardinal({ tension: 0 });
+  }
+  if (
+    Chartist &&
+    Chartist.Interpolation &&
+    typeof Chartist.Interpolation.monotoneCubic === "function"
+  ) {
+    return Chartist.Interpolation.monotoneCubic({ tension: 0 });
+  }
+  return false;
+};
+
 const dailySalesChart = {
   data: {
     labels: ["M", "T", "W", "T", "F", "S", "S"],
     series: [[12, 17, 7, 17, 23, 18, 38]],
   },
   options: {
-    lineSmooth: Chartist.Interpolation.cardinal({
-      tension: 0,
-    }),
+    lineSmooth: getLineSmooth(),
     low: 0,
     high: 50, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
     chartPadding: {
@@ -140,9 +157,7 @@ const completedTasksChart = {
     series: [[230, 750, 450, 300, 280, 240, 200, 190]],
   },
   options: {
-    lineSmooth: Chartist.Interpolation.cardinal({
-      tension: 0,
-    }),
+    lineSmooth: getLineSmooth(),
     low: 0,
     high: 1000, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
     chartPadding: {
@@ -183,8 +198,4 @@ const completedTasksChart = {
   },
 };
 
-module.exports = {
-  dailySalesChart,
-  emailsSubscriptionChart,
-  completedTasksChart,
-};
+export { dailySalesChart, emailsSubscriptionChart, completedTasksChart };

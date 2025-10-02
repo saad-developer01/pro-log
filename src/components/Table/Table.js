@@ -13,20 +13,57 @@ import styles from "assets/jss/material-dashboard-react/components/tableStyle.js
 const useStyles = makeStyles(styles);
 export default function CustomTable(props) {
   const classes = useStyles();
-  const { tableHead, tableData, tableHeaderColor } = props;
+  const { tableHead, tableData, tableHeaderColor, sortable } = props;
+  const [sortConfig, setSortConfig] = React.useState({ columnIndex: null, direction: "asc" });
+
+  const sortedData = React.useMemo(() => {
+    if (sortConfig.columnIndex == null) return tableData;
+    const dataCopy = [...tableData];
+    dataCopy.sort((a, b) => {
+      const aVal = a[sortConfig.columnIndex];
+      const bVal = b[sortConfig.columnIndex];
+      const aNum = parseFloat(String(aVal).replace(/[^0-9.-]+/g, ""));
+      const bNum = parseFloat(String(bVal).replace(/[^0-9.-]+/g, ""));
+      const bothNumeric = !isNaN(aNum) && !isNaN(bNum);
+      let cmp = 0;
+      if (bothNumeric) {
+        cmp = aNum - bNum;
+      } else {
+        cmp = String(aVal).localeCompare(String(bVal));
+      }
+      return sortConfig.direction === "asc" ? cmp : -cmp;
+    });
+    return dataCopy;
+  }, [tableData, sortConfig]);
+
+  const onSort = (index) => {
+    if (!sortable) return;
+    setSortConfig((prev) => {
+      if (prev.columnIndex === index) {
+        return { columnIndex: index, direction: prev.direction === "asc" ? "desc" : "asc" };
+      }
+      return { columnIndex: index, direction: "asc" };
+    });
+  };
+
   return (
     <div className={classes.tableResponsive}>
       <Table className={classes.table}>
         {tableHead !== undefined ? (
           <TableHead className={classes[tableHeaderColor + "TableHeader"]}>
             <TableRow className={classes.tableHeadRow}>
-              {tableHead.map((prop, key) => {
+              {tableHead.map((label, idx) => {
+                const isActive = sortable && sortConfig.columnIndex === idx;
+                const indicator = isActive ? (sortConfig.direction === "asc" ? " ▲" : " ▼") : "";
                 return (
                   <TableCell
                     className={classes.tableCell + " " + classes.tableHeadCell}
-                    key={key}
+                    key={idx}
+                    onClick={() => onSort(idx)}
+                    style={{ cursor: sortable ? "pointer" : "default" }}
                   >
-                    {prop}
+                    {label}
+                    {indicator}
                   </TableCell>
                 );
               })}
@@ -34,13 +71,13 @@ export default function CustomTable(props) {
           </TableHead>
         ) : null}
         <TableBody>
-          {tableData.map((prop, key) => {
+          {sortedData.map((row, rIdx) => {
             return (
-              <TableRow key={key} className={classes.tableBodyRow}>
-                {prop.map((prop, key) => {
+              <TableRow key={rIdx} className={classes.tableBodyRow}>
+                {row.map((cell, cIdx) => {
                   return (
-                    <TableCell className={classes.tableCell} key={key}>
-                      {prop}
+                    <TableCell className={classes.tableCell} key={cIdx}>
+                      {cell}
                     </TableCell>
                   );
                 })}
@@ -69,4 +106,5 @@ CustomTable.propTypes = {
   ]),
   tableHead: PropTypes.arrayOf(PropTypes.string),
   tableData: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)),
+  sortable: PropTypes.bool,
 };
